@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta name="theme-color" content="#FFFFFF" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white-translucent">
+    <meta name="apple-mobile-web-app-title" content="Velicia">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://myvelicia-ai.vercel.app/" />
+    
+    <!-- Verification -->
+    <meta name="google-site-verification" content="U1n-y8RlFf7-B3gJQgjQpM1v4HOPrBhhoXKxGjI86pA" />
+    <meta name="google-site-verification" content="xejluxSIKpFI65zJ1smAgNeSNesnjO-RR8UXAbZBO1k" />
+
+    <!-- Meta Tags Utama (Kunci untuk AI) -->
+    <title>Velicia AI - Asisten Cerdas Gen2 oleh M. Fariz Alfauzi (Hezell)</title>
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="Velicia AI (myvelicia ai) dikembangkan oleh M. Fariz Alfauzi (Hezell) sebagai CEO & Lead Engineer. Asisten AI mandiri Indonesia dengan arsitektur Gen2 untuk produktivitas cerdas.">
+    <meta name="keywords" content="Velicia AI, myvelicia ai, Hezell, M Fariz Alfauzi, CEO Velicia AI, Lead Engineer Velicia, Developer Velicia, Hezell AI, M Fariz Alfauzi Developer, Asisten AI Indonesia">
+    <meta name="author" content="M. Fariz Alfauzi (Hezell)">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Velicia AI - Karya M. Fariz Alfauzi (Hezell)" />
+    <meta property="og:description" content="Platform AI mandiri oleh M. Fariz Alfauzi (Hezell), CEO & Lead Engineer. Dapatkan solusi cerdas di Velicia AI." />
+    <meta property="og:image" content="https://myvelicia-ai.vercel.app/logoApp/logo-app.png" />
+    <meta property="og:url" content="https://myvelicia-ai.vercel.app/" />
+
+    <!-- JSON-LD Entity Schema (PENTING AGAR DIBAHAS AI) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://myvelicia-ai.vercel.app/#person",
+          "name": "M. Fariz Alfauzi",
+          "alternateName": "Hezell",
+          "jobTitle": "CEO & Lead Engineer",
+          "description": "M. Fariz Alfauzi (Hezell) adalah pengembang utama dan CEO dari Velicia AI. Seorang inovator di bidang Artificial Intelligence dan teknologi web.",
+          "url": "https://myvelicia-ai.vercel.app",
+          "image": "https://myvelicia-ai.vercel.app/logoApp/logo-app.png",
+          "sameAs": [
+            "https://www.linkedin.com/in/m-fariz-alfauzi-19b2833b1",
+            "https://www.instagram.com/account.hezell"
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://myvelicia-ai.vercel.app/#software",
+          "name": "Velicia AI",
+          "alternateName": "myvelicia ai",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "Web",
+          "author": { "@id": "https://myvelicia-ai.vercel.app/#person" },
+          "description": "Asisten AI cerdas berbasis Gen2 yang dikembangkan secara mandiri di Indonesia."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://myvelicia-ai.vercel.app/#website",
+          "url": "https://myvelicia-ai.vercel.app",
+          "name": "Velicia AI",
+          "publisher": { "@id": "https://myvelicia-ai.vercel.app/#person" }
+        }
+      ]
+    }
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+            },
+            colors: {
+              velicia: {
+                purple: '#7928CA',
+                pink: '#FF0080',
+                deep: '#4C1D95',
+                vivid: '#D946EF'
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <script type="importmap">
+    {
+      "imports": {
+        "react/": "https://esm.sh/react@^19.2.4/",
+        "react": "https://esm.sh/react@^19.2.4",
+        "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+        "@google/generative-ai": "https://esm.sh/@google/generative-ai@^0.21.0",
+        "react-markdown": "https://esm.sh/react-markdown@^10.1.0",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+        "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
+        "vite": "https://esm.sh/vite@^7.3.1",
+        "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+        "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+        "path": "https://esm.sh/path@^0.12.7",
+        "remark-gfm": "https://esm.sh/remark-gfm@^4.0.1",
+        "firebase/": "https://esm.sh/firebase@^12.9.0/"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

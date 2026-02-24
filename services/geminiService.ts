@@ -7,7 +7,7 @@ import { CONFIG } from '../config';
 export const IMAGE_MODELS = []; 
 
 const getAIClient = () => {
-    const apiKey = process.env.API_KEY;
+    const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
         console.error("API_KEY is missing in environment variables.");
         throw new Error("Fitur ini membutuhkan API_KEY di konfigurasi environment");

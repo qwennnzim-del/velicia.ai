@@ -179,7 +179,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({ isOpen, onClose, pro
 // --- LOGIN MODAL ---
 export const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void; onLogin: () => void }> = ({ isOpen, onClose, onLogin }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<{ message: string; isConfigError?: boolean } | null>(null);
 
   const handleGoogleLogin = async () => {
     setIsLoading(true);
@@ -189,8 +189,33 @@ export const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void; onLogi
         // onLogin is handled by App.tsx detecting auth state change, but we can call onClose
         onClose();
     } catch (err: any) {
-        console.error(err);
-        setError("Gagal login dengan Google. Periksa koneksi atau konfigurasi Firebase.");
+        console.error("Login Error:", err);
+        
+        let msg = "Gagal terhubung ke Google.";
+        let isConfig = false;
+
+        // Handle Specific Firebase Errors
+        if (err.code === 'auth/configuration-not-found') {
+             msg = "Google Sign-In belum diaktifkan di Firebase Console.";
+             isConfig = true;
+        } else if (err.code === 'auth/operation-not-allowed') {
+             msg = "Metode login Google belum diaktifkan.";
+             isConfig = true;
+        } else if (err.code === 'auth/unauthorized-domain') {
+             msg = "Domain website ini belum diizinkan di Firebase.";
+             isConfig = true;
+        } else if (err.code === 'auth/invalid-api-key') {
+             msg = "API Key Firebase tidak valid.";
+             isConfig = true;
+        } else if (err.code === 'auth/popup-closed-by-user') {
+             msg = "Login dibatalkan.";
+        } else if (err.code === 'auth/popup-blocked') {
+             msg = "Popup login diblokir browser.";
+        } else if (err.message) {
+            msg = err.message;
+        }
+
+        setError({ message: msg, isConfigError: isConfig });
     } finally {
         setIsLoading(false);
     }
@@ -202,8 +227,19 @@ export const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void; onLogi
          <p className="text-center text-gray-500 text-sm mb-4">Masuk untuk menyimpan riwayat chat di Cloud secara permanen.</p>
          
          {error && (
-            <div className="bg-red-50 text-red-600 p-3 rounded-xl text-xs font-bold mb-4 flex items-center gap-2">
-                <AlertTriangle size={16} /> {error}
+            <div className={`p-3 rounded-xl text-xs font-bold mb-4 flex items-start gap-2 ${error.isConfigError ? 'bg-amber-50 text-amber-800' : 'bg-red-50 text-red-600'}`}>
+                <AlertTriangle size={16} className="shrink-0 mt-0.5" /> 
+                <div className="flex flex-col gap-1">
+                    <span>{error.message}</span>
+                    {error.isConfigError && (
+                        <span className="font-normal opacity-90">
+                            {error.message.includes('Domain') 
+                                ? "Tips: Buka Firebase Console > Authentication > Settings > Authorized domains lalu tambahkan domain ini."
+                                : "Tips: Buka Firebase Console > Authentication > Sign-in method > Aktifkan Google."
+                            }
+                        </span>
+                    )}
+                </div>
             </div>
          )}
          

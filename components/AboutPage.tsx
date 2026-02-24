@@ -56,7 +56,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onBack, language }) => {
             <span className="font-bold text-sm">{t.back}</span>
          </button>
          <div className="flex items-center gap-2">
-            <img src="/logoApp/logo-app.png" alt="Logo" className="h-7 w-auto object-contain grayscale opacity-60" />
+            <img src="/logo-app.png" alt="Logo" className="h-7 w-auto object-contain grayscale opacity-60" />
             <span className="font-bold text-base tracking-tight text-gray-400">Profile</span>
          </div>
          <div className="w-10"></div> {/* Spacer for centering */}

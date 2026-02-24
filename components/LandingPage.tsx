@@ -249,7 +249,7 @@ const MockupChat: React.FC<{ t: any }> = ({ t }) => {
           className="flex-1 p-4 md:p-6 flex flex-col overflow-y-auto no-scrollbar scroll-smooth"
         >
           <div className="flex gap-3 mb-2 max-w-[90%] animate-in fade-in duration-500">
-            <img src="/logoApp/logo-app.png" alt="Velicia Logo" className="h-8 w-auto object-contain shrink-0" />
+            <img src="/logo-app.png" alt="Velicia Logo" className="h-8 w-auto object-contain shrink-0" />
             <div className="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-gray-100">
               <p className="text-xs md:text-sm font-medium text-gray-800">{t.hero.mockupText}</p>
             </div>
@@ -276,7 +276,7 @@ const MockupChat: React.FC<{ t: any }> = ({ t }) => {
 
           {step === 2 && (
             <div className="flex gap-3 mb-6 animate-in fade-in duration-300">
-              <img src="/logoApp/logo-app.png" alt="Velicia Logo" className="h-8 w-auto object-contain shrink-0 animate-pulse" />
+              <img src="/logo-app.png" alt="Velicia Logo" className="h-8 w-auto object-contain shrink-0 animate-pulse" />
               <div className="flex gap-1.5 mt-3">
                 <div className="w-1.5 h-1.5 bg-[#7928CA] rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
                 <div className="w-1.5 h-1.5 bg-[#FF0080] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
@@ -287,7 +287,7 @@ const MockupChat: React.FC<{ t: any }> = ({ t }) => {
 
           {step >= 3 && (
             <div className="flex gap-3 mb-6 max-w-[95%] animate-in slide-in-from-bottom-4 duration-700">
-              <img src="/logoApp/logo-app.png" alt="Velicia Logo" className="h-8 w-auto object-contain shrink-0" />
+              <img src="/logo-app.png" alt="Velicia Logo" className="h-8 w-auto object-contain shrink-0" />
               <div className="flex flex-col gap-2">
                   <div className="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-gray-100">
                     <p className="text-xs md:text-sm font-medium text-gray-800 leading-relaxed">
@@ -333,7 +333,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onReadArticle, on
   };
 
   const blogImages = [
-    "/logoApp/thumbnail-gen2.png",
+    "/thumbnail-gen2.png",
     "https://images.unsplash.com/photo-1589254065878-42c9da997008?q=80&w=2000&auto=format&fit=crop", 
     "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2000&auto=format&fit=crop"
   ];
@@ -385,7 +385,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onReadArticle, on
       <div className={`fixed inset-0 bg-white z-[60] flex flex-col transition-all duration-300 ${mobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'}`}>
           <div className="flex items-center justify-between p-5 border-b border-gray-100">
              <div className="flex items-center gap-2">
-                 <img src="/logoApp/logo-app.png" alt="Velicia Logo" className="h-8 w-auto object-contain" />
+                 <img src="/logo-app.png" alt="Velicia Logo" className="h-8 w-auto object-contain" />
                  <span className="font-bold text-xl tracking-tight text-gray-900">Velicia</span>
              </div>
              <button onClick={() => setMobileMenuOpen(false)} className="p-2 hover:bg-gray-100 rounded-full">
@@ -436,7 +436,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onReadArticle, on
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md border-b border-gray-100 py-2' : 'bg-transparent py-4'}`}>
         <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
           <div className="flex items-center gap-2.5 cursor-pointer group" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
-            <img src="/logoApp/logo-app.png" alt="Velicia Logo" className="h-10 w-auto object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-500" />
+            <img src="/logo-app.png" alt="Velicia Logo" className="h-10 w-auto object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-500" />
             <span className="font-bold text-xl tracking-tight text-gray-900">Velicia</span>
           </div>
 
@@ -663,7 +663,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onReadArticle, on
       <footer className="py-12 border-t border-gray-100 bg-gray-50">
           <div className="max-w-6xl mx-auto px-6 text-center">
               <div className="flex items-center justify-center gap-3 mb-6">
-                <img src="/logoApp/logo-app.png" alt="Velicia Logo" className="h-12 w-auto object-contain opacity-80" />
+                <img src="/logo-app.png" alt="Velicia Logo" className="h-12 w-auto object-contain opacity-80" />
                 <span className="font-bold text-xl tracking-tight text-gray-400">Velicia</span>
               </div>
               

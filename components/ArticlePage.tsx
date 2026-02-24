@@ -22,7 +22,7 @@ export const BLOG_POSTS: ArticleData[] = [
       author: "M. Fariz Alfauzi",
       readTime: "3 menit baca",
       tag: "Teknologi",
-      image: "/logoApp/thumbnail-gen2.png", 
+      image: "/thumbnail-gen2.png", 
       excerpt: "Transformasi fundamental pada mesin kecerdasan kami membawa penalaran mendalam dan efisiensi tinggi.",
       content: `
         <p class="lead">Kami dengan bangga mengumumkan bahwa per hari ini, Velicia AI telah sepenuhnya bermigrasi ke arsitektur <strong>Gen2</strong>. Ini bukan sekadar pembaruan versi, melainkan transformasi fundamental pada mesin kecerdasan kami.</p>
@@ -152,7 +152,7 @@ export const BLOG_POSTS: ArticleData[] = [
 const AuthorCard: React.FC<{ author: string, role: string }> = ({ author, role }) => (
   <div className="mt-12 p-6 bg-gradient-to-br from-blue-50 to-white border border-blue-100 rounded-3xl flex items-center gap-5 shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
     <div className="absolute -top-6 -right-6 p-2 opacity-10 rotate-12 group-hover:rotate-0 transition-transform duration-700">
-       <img src="/logoApp/logo-app.png" className="h-32 w-auto" alt="Watermark" />
+       <img src="/logo-app.png" className="h-32 w-auto" alt="Watermark" />
     </div>
     <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-black text-2xl z-10 shadow-lg shadow-blue-200">
        {author.charAt(0)}
@@ -214,7 +214,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ articleId, onBack, onReadArti
             <span className="font-bold text-sm">Kembali</span>
          </button>
          <div className="flex items-center gap-2">
-            <img src="/logoApp/logo-app.png" alt="Logo" className="h-8 w-auto object-contain" />
+            <img src="/logo-app.png" alt="Logo" className="h-8 w-auto object-contain" />
             <span className="font-bold text-lg tracking-tight text-gray-900">Velicia</span>
          </div>
          <button 

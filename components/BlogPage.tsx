@@ -44,7 +44,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, onReadArticle }) => {
                 <ArrowLeft size={20} />
              </button>
              <div className="flex items-center gap-2">
-                <img src="/logoApp/logo-app.png" alt="Logo" className="h-8 w-auto object-contain" />
+                <img src="/logo-app.png" alt="Logo" className="h-8 w-auto object-contain" />
                 <span className="font-bold text-lg tracking-tight hidden md:block">Velicia Blog</span>
              </div>
          </div>

@@ -15,7 +15,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onModelSelect, onPromptSelect, tr
       
       {/* Optimized Logo */}
       <div className="mb-6 transform hover:scale-105 transition-transform duration-500">
-        <img src="/logoApp/logo-app.png" alt="Velicia Logo" className="h-24 w-auto object-contain drop-shadow-sm" />
+        <img src="/logo-app.png" alt="Velicia Logo" className="h-24 w-auto object-contain drop-shadow-sm" />
       </div>
       
       <h2 className="text-3xl font-black text-gray-900 mb-3 tracking-tight">{t.welcome}</h2>

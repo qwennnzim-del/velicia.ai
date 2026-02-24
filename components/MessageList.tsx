@@ -444,7 +444,7 @@ const MessageList: React.FC<MessageListProps> = ({ messages, isLoading, loadingS
             {msg.role === Role.MODEL ? (
                <div className="relative w-full">
                  <div className="flex items-center gap-2.5 mb-3 ml-1 animate-in fade-in duration-300">
-                     <img src="/logoApp/logo-app.png" alt="Velicia" className="w-7 h-7 object-contain drop-shadow-sm" />
+                     <img src="/logo-app.png" alt="Velicia" className="w-7 h-7 object-contain drop-shadow-sm" />
                      <span className="text-sm md:text-base font-bold text-gray-900 tracking-tight">Velicia</span>
                  </div>
 

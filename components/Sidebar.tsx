@@ -52,7 +52,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         {/* Header Sidebar */}
         <div className="p-5 flex items-center justify-between">
            <div className="flex items-center gap-2">
-                <img src="/logoApp/logo-app.png" alt="Velicia Logo" className="h-8 w-auto object-contain" />
+                <img src="/logo-app.png" alt="Velicia Logo" className="h-8 w-auto object-contain" />
            </div>
            <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-full text-gray-400 hover:text-gray-600 transition-colors">
              <X size={20} />

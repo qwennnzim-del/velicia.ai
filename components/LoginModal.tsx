@@ -80,7 +80,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLogin
         <div className="relative p-8 pt-10 text-center">
             {/* Logo */}
             <div className="w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-100 mx-auto flex items-center justify-center mb-6 relative z-10">
-                <img src="/logoApp/logo-app.png" alt="Velicia" className="w-10 h-10 object-contain" />
+                <img src="/logo-app.png" alt="Velicia" className="w-10 h-10 object-contain" />
             </div>
 
             <h2 className="text-2xl font-black text-gray-900 mb-2 tracking-tight">Selamat Datang</h2>

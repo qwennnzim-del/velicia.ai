@@ -6,12 +6,12 @@ import { getStorage, ref, uploadString, getDownloadURL, FirebaseStorage } from "
 import { getAnalytics, logEvent as firebaseLogEvent, Analytics } from "firebase/analytics";
 
 // --- KONFIGURASI FIREBASE ---
-const apiKey = process.env.VITE_FIREBASE_API_KEY;
-const authDomain = process.env.VITE_FIREBASE_AUTH_DOMAIN;
-const projectId = process.env.VITE_FIREBASE_PROJECT_ID;
-const storageBucket = process.env.VITE_FIREBASE_STORAGE_BUCKET;
-const messagingSenderId = process.env.VITE_FIREBASE_MESSAGING_SENDER_ID;
-const appId = process.env.VITE_FIREBASE_APP_ID;
+const apiKey = process.env.VITE_FIREBASE_API_KEY || "AIzaSyA47cwxNDIUs4s2zcpVtbapt4stRa5Oc14";
+const authDomain = process.env.VITE_FIREBASE_AUTH_DOMAIN || "veliciagen2.firebaseapp.com";
+const projectId = process.env.VITE_FIREBASE_PROJECT_ID || "veliciagen2";
+const storageBucket = process.env.VITE_FIREBASE_STORAGE_BUCKET || "veliciagen2.firebasestorage.app";
+const messagingSenderId = process.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "822539093191";
+const appId = process.env.VITE_FIREBASE_APP_ID || "1:822539093191:web:936e100e36fd8d7ad52ae2";
 
 const firebaseConfig = {
   apiKey,

@@ -229,6 +229,11 @@ const App: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [history, setHistory] = useState<ChatSession[]>([]);
   const [activeChatId, setActiveChatId] = useState<string | null>(null);
+  const activeChatIdRef = React.useRef<string | null>(null);
+
+  useEffect(() => {
+      activeChatIdRef.current = activeChatId;
+  }, [activeChatId]);
 
   const [isAILoading, setIsAILoading] = useState(false);
   const [loadingState, setLoadingState] = useState<'idle' | 'thinking' | 'searching' | 'youtube_search'>('idle');
@@ -322,9 +327,9 @@ const App: React.FC = () => {
   useEffect(() => {
       if (activeChatId && history.length > 0) {
           const session = history.find(s => s.id === activeChatId);
-          if (session && session.messages.length !== messages.length) {
+          if (session) {
               setMessages(session.messages);
-          } else if (!session) {
+          } else {
              setActiveChatId(null);
              setMessages([]);
           }
@@ -538,16 +543,29 @@ const App: React.FC = () => {
         text: '', 
         timestamp: Date.now(),
     };
-
-    let currentConversation = [...historyMessages, placeholderMessage];
     
     const updateConversationState = (updatedMsg: Message) => {
-        const newConv = currentConversation.map(m => m.id === updatedMsg.id ? updatedMsg : m);
-        currentConversation = newConv;
-        setMessages(newConv);
-        setHistory(prev => {
-            const updated = prev.map(s => s.id === sessionId ? { ...s, messages: newConv } : s);
-            return updated;
+        setHistory(prevHistory => {
+            return prevHistory.map(session => {
+                if (session.id === sessionId) {
+                    // Check if the message already exists in the session
+                    const msgExists = session.messages.some(m => m.id === updatedMsg.id);
+                    let newMessages;
+                    if (msgExists) {
+                        newMessages = session.messages.map(m => m.id === updatedMsg.id ? updatedMsg : m);
+                    } else {
+                        newMessages = [...session.messages, updatedMsg];
+                    }
+                    
+                    // Also update the active messages state if this is the active chat
+                    if (activeChatIdRef.current === sessionId) {
+                        setMessages(newMessages);
+                    }
+                    
+                    return { ...session, messages: newMessages };
+                }
+                return session;
+            });
         });
     };
 
@@ -572,16 +590,14 @@ const App: React.FC = () => {
           updateConversationState(updatedAiMessage);
       }
       
-      if (userProfile.isLoggedIn && userProfile.uid) {
-          const finalSession = history.find(s => s.id === sessionId);
-          if (finalSession) {
-              const sessionToSave = {
-                  ...finalSession,
-                  messages: currentConversation 
-              };
-              saveChatToFirestore(userProfile.uid, sessionToSave);
+      // Save final state to Firestore
+      setHistory(prev => {
+          const finalSession = prev.find(s => s.id === sessionId);
+          if (finalSession && userProfile.isLoggedIn && userProfile.uid) {
+              saveChatToFirestore(userProfile.uid, finalSession);
           }
-      }
+          return prev;
+      });
 
     } catch (error) {
       console.error("Error sending message:", error);

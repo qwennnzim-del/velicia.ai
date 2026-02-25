@@ -194,10 +194,10 @@ export const generateSpeechFromGemini = async (text: string): Promise<string | u
         const safeText = cleanText.length > 800 ? cleanText.substring(0, 800) + "..." : cleanText;
 
         const response = await ai.models.generateContent({
-            model: "gemini-2.5-flash", // Use 2.5 Flash for TTS
+            model: "gemini-2.5-flash-preview-tts", // Use 2.5 Flash TTS
             contents: [{ 
                 parts: [{ 
-                    text: `Read this text clearly and naturally in Indonesian language: "${safeText}"` 
+                    text: safeText
                 }] 
             }],
             config: {
@@ -210,13 +210,9 @@ export const generateSpeechFromGemini = async (text: string): Promise<string | u
             },
         });
         
-        const parts = response.candidates?.[0]?.content?.parts;
-        if (parts) {
-            for (const part of parts) {
-                if (part.inlineData && part.inlineData.mimeType?.startsWith('audio')) {
-                    return part.inlineData.data;
-                }
-            }
+        const base64Audio = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+        if (base64Audio) {
+            return base64Audio;
         }
         return undefined;
     } catch (error) {
